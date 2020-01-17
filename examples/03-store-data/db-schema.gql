@@ -1,7 +1,0 @@
-type Signature {
-  name: String!
-}
-
-type Query {
-  signatures: [Signature!]!
-}

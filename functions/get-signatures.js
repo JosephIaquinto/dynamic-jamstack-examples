@@ -1,18 +1,18 @@
 const graphql = require('./util/graphql');
 
 exports.handler = async () => {
-  const { signatures } = await graphql(`
+  const { messages } = await graphql(`
     query {
-      signatures {
+      messages {
         data {
-          name
+          name,
+          data
         }
       }
     }
   `);
-
   return {
     statusCode: 200,
-    body: JSON.stringify(signatures.data),
+    body: JSON.stringify({messages}),
   };
 };

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grandpa's Message Board</title>
+    <link rel="stylesheet" href="./common/global.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">GrandpaBoard</a>
+      <nav>
+          <a href="/login/">Log In</a>
+      </nav>
+    </header>
+
+    <main>
+      <ul class="signatures"></ul>
+
+      <h1>Leave a message for Frank</h1>
+      <form action="/.netlify/functions/add-signature" method="POST">
+        <label for="name">Your name</label>
+        <input type="text" name="name" required />
+        <label for="data">Your message</label>
+        <input type="text" name="data" required />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+
+    <footer>
+      Built by Joe Iaquinto with help from <a href="https://lengstorf.com">Jason Lengstorf</a> ·
+      <a href="https://github.com/JosephIaquinto/dynamic-jamstack-examples"
+        >source code</a
+      >
+      ·
+      <a
+        href=""
+        >Hosted on Netlify</a
+      >
+    </footer>
+
+    <script>
+      fetch('/.netlify/functions/get-signatures')
+        .then(res => res.json())
+        .then(messages => {
+          const signatures = document.querySelector('.signatures');
+
+          messages.messages.data.forEach(({ name, data }) => {
+            const li = document.createElement('li');
+            li.innerHTML = `${data} - <i>${name}</i>`;
+            signatures.appendChild(li);
+          });
+        });
+    </script>
+  </body>
+</html>

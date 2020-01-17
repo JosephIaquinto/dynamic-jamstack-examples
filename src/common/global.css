@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  background: hsl(280, 85%, 15%);
+  background: hsl(0, 100%, 35%);
   color: hsl(280, 15%, 85%);
   font-size: 0.875rem;
   padding: 1rem 5vw;
@@ -60,8 +60,8 @@ h2 {
 }
 
 form {
-  background: hsl(280, 85%, 95%);
-  border: 1px solid hsl(280, 85%, 90%);
+  background: hsl(0, 100%, 35%);
+  border: 1px solid hsl(0, 100%, 35%);
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
@@ -77,7 +77,7 @@ label {
 
 input,
 select {
-  border: 1px solid hsl(280, 85%, 90%);
+  border: 1px solid hsl(0, 70%, 35%);
   border-radius: 0.25rem;
   font-size: 1rem;
   margin: 0;
@@ -86,8 +86,8 @@ select {
 }
 
 button {
-  background: hsl(280, 95%, 40%);
-  border: 1px solid hsl(280, 15%, 15%);
+  background: hsl(0, 100%, 35%);
+  border: 1px solid hsl(0, 70%, 35%);
   border-radius: 0.25rem;
   color: hsl(280, 15%, 95%);
   font-size: 1rem;
@@ -96,7 +96,7 @@ button {
 }
 
 footer {
-  border-top: 1px solid hsl(280, 85%, 90%);
+  border-top: 1px solid hsl(0, 50%, 35%);
   font-size: 0.75rem;
   margin: 2rem auto 2rem;
   max-width: 90vw;
@@ -118,27 +118,6 @@ footer {
     header {
       display: flex;
       justify-content: space-between;
-    }
-  }
-
-  @supports (display: grid) {
-    form {
-      display: grid;
-      grid-column-gap: 1rem;
-      grid-row-gap: 0.125rem;
-      grid-template-areas:
-        'label ......'
-        'input button';
-      grid-template-columns: 1fr 125px;
-    }
-    input,
-    select {
-      grid-area: input;
-    }
-
-    button {
-      grid-area: button;
-      margin-top: 0;
     }
   }
 }
